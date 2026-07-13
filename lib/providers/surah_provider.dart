@@ -1,0 +1,59 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter_praktikum_1/models/models.dart';
+import 'package:flutter_praktikum_1/services/api_service.dart';
+
+class SurahProvider with ChangeNotifier{
+
+  final ApiService _apiService = ApiService();
+
+  final List<Surah> _surahList = [];
+  List<Surah> get surahList => _surahList;
+
+  DetailedSurah? _selectedSurah;
+  DetailedSurah? get selectedSurah => _selectedSurah;
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  String? _errorMessage = '';
+  String? get errorMessage => _errorMessage;
+
+  Future<void> fetchSurahList() async {
+    _isLoading = true;
+    notifyListeners();
+
+    final response = await _apiService.getSurahList();
+
+    if(response.code == 200 && response.data != null){
+      _surahList.clear();
+      _surahList.addAll(response.data!.surahList);
+    } else {
+      _errorMessage = response.message;
+    }
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchSurahDetail(int surahNumber) async {
+    _isLoading = true;
+    notifyListeners();
+
+    final response = await _apiService.getSurahDetail(surahNumber);
+
+    if(response.code == 200 && response.data != null){
+      _selectedSurah = response.data;
+    } else {
+      _errorMessage = response.message;
+    }
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  void clearSelectedSurah(){
+    _selectedSurah = null;
+    notifyListeners();
+  }
+
+}
