@@ -1,5 +1,5 @@
-import 'package:quran_ku/models/ayah.dart';
-import 'package:quran_ku/models/surah.dart';
+import 'package:flutter_praktikum_1/models/ayah.dart';
+import 'package:flutter_praktikum_1/models/surah.dart';
 
 
 class DetailedSurah extends Surah{

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:quran_ku/models/models.dart';
-import 'package:quran_ku/services/api_service.dart';
+import 'package:flutter_praktikum_1/models/models.dart';
+import 'package:flutter_praktikum_1/services/api_service.dart';
 
 
 class SurahProvider with ChangeNotifier {

@@ -1,4 +1,4 @@
-import 'package:quran_ku/models/surah.dart';
+import 'package:flutter_praktikum_1/models/surah.dart';
 
 class ApiResponse<T>{
 

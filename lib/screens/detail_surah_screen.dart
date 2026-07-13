@@ -228,7 +228,7 @@ class _DetailSurahScreenState extends State<DetailSurahScreen> {
                                       fontStyle: FontStyle.italic,
                                     ),
                                     "br": Style(
-                                      margin: Margins.only(top: 8.0),
+                                      margin: const EdgeInsets.only(top: 8.0),
                                     ),
                                   },
                                 ),

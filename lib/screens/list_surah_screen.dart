@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_ku/models/surah.dart';
-import 'package:quran_ku/providers/providers.dart';
+import 'package:flutter_praktikum_1/models/surah.dart';
+import 'package:flutter_praktikum_1/providers/providers.dart';
 
 class ListSurahScreen extends StatelessWidget {
   const ListSurahScreen({super.key});
