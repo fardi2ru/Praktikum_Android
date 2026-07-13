@@ -9,19 +9,19 @@ class Surah {
   final Map<String, String> audioFull;
 
 
-Surah({
-  required this.nomor,
-  required this.nama,
-  required this.namaLatin,
-  required this.jumlahAyat,
-  required this.tempatTurun,
-  required this.arti,
-  required this.deskripsi,
-  required this.audioFull,
-});
+  Surah({
+    required this.nomor,
+    required this.nama,
+    required this.namaLatin,
+    required this.jumlahAyat,
+    required this.tempatTurun,
+    required this.arti,
+    required this.deskripsi,
+    required this.audioFull,
 
+  });
 
-factory Surah.fromJson(Map<String, dynamic> json) 
+  factory Surah.fromJson(Map<String, dynamic> json) 
   {
     return Surah(
       nomor: json['nomor'] as int? ?? 0,
@@ -31,22 +31,22 @@ factory Surah.fromJson(Map<String, dynamic> json)
       tempatTurun: json['tempatTurun'] as String? ?? '',
       arti: json['arti'] as String? ?? '',
       deskripsi: json['deskripsi'] as String? ?? '',
-      audioFull: (json['audioFull'] as Map<String, dynamic>?)?.map((key, value) => MapEntry(key, value.toString())).cast<String, String>() ?? {},
+      audioFull: (json['audioFull'] as Map<String, dynamic>? ?? {}).map((key, value) => MapEntry(key, value.toString())),
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'nomor': nomor,
+      'nama': nama,
+      'namaLatin': namaLatin,
+      'jumlahAyat': jumlahAyat,
+      'tempatTurun': tempatTurun,
+      'arti': arti,
+      'deskripsi': deskripsi,
+      'audioFull': audioFull,
+    };
+  }
+}
 
 
-Map<String, dynamic> toJson(){
-  return{
-    'nomor': nomor,
-    'nama': nama,
-    'namaLatin': namaLatin,
-    'jumlahAyat': jumlahAyat,
-    'tempatTurun': tempatTurun,
-    'arti': arti,
-    'deskripsi': deskripsi,
-    'audioFull': audioFull
-  };
-}
-}

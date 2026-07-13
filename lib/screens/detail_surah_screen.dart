@@ -75,7 +75,7 @@ class _DetailSurahScreenState extends State<DetailSurahScreen> {
             );
           }
 
-          if (provider.errorMessage?.isNotEmpty == true) {
+          if (provider.errorMessage.isNotEmpty) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +87,7 @@ class _DetailSurahScreenState extends State<DetailSurahScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    provider.errorMessage ?? '',
+                    provider.errorMessage,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
@@ -226,6 +226,9 @@ class _DetailSurahScreenState extends State<DetailSurahScreen> {
                                     ),
                                     "i": Style(
                                       fontStyle: FontStyle.italic,
+                                    ),
+                                    "br": Style(
+                                      margin: Margins.only(top: 8.0),
                                     ),
                                   },
                                 ),
